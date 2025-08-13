@@ -9,7 +9,7 @@
 .sidebar {
   @include clearfix();
 
-  /* Estilos móviles (por defecto, bloque normal) */
+  /* Estilos moviles (por defecto, bloque normal) */
   @include breakpoint(max-width $large) {
     position: relative;
     z-index: 10;
@@ -189,18 +189,18 @@
     }
   }
 
-  /* Por defecto, botón visible en móvil */
+  /* Por defecto, boton visible en movil */
   button {
     margin-bottom: 0;
     display: block;
 
-    /* En desktop, botón oculto */
+    /* En desktop, boton oculto */
     @include breakpoint($large) {
       display: none;
     }
   }
 
-  /* En desktop, si el padre tiene clase .home, mostramos botón */
+  /* En desktop, si el padre tiene clase .home, mostramos boton */
   .home & {
     @include breakpoint($large) {
       button {
