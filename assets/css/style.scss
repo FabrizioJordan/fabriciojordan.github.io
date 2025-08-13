@@ -36,7 +36,7 @@ html body {
 }
 
 html .page__footer {
-  background: oklch(0.29 0 0);
+  background: oklch(0.26 0 0);
 }
 
 html body video{
@@ -314,6 +314,19 @@ html .main{
 html .main__home{
   max-width: 84%;
 }
+
+html .breadcrumbs:has(~ .main__post) {
+  padding-top: 3.75em;
+}
+
+html .main__post .page__meta{
+  padding-bottom: 2em;
+}
+
+html .main__post .page__inner-wrap{
+  margin-top: 2em;
+}
+
 
 html .masthead{
   border-bottom: 1px solid $border-color;

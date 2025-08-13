@@ -14,6 +14,7 @@
 
 {% if page.url == "/" %}
 
+
   <div class="{{ include.type | default: "list" }}__item">
     <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
       {% if include.type == "grid" and teaser %}
@@ -29,7 +30,10 @@
       {% endif %}
       <h2 class="archive__item-title archive__item-title-home" itemprop="headline">
         {% if post.link %}
-          <a class="text-cyan-500-hover text-cyan-300" href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink">
+          <a class="text-cyan-500-hover text-cyan-300" href="{{ post.link }}">
+            {{ title }}
+          </a> 
+          <a href="{{ post.url | relative_url }}" rel="permalink">
             <i class="fas fa-link" aria-hidden="true" title="permalink"></i>
             <span class="sr-only">Permalink</span>
           </a>
@@ -76,6 +80,7 @@
 
 
 {% else %}
+
 
    <div class="{{ include.type | default: "list" }}__item">
     <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
