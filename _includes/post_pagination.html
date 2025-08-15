@@ -1,35 +1,99 @@
-{% if page.previous or page.next %}
+{% if page.previous and page.next %}
+
 
   <nav class="pagination">
-
-    {% if page.previous %}
+    <div class="pagination__previous">
+      <span class="pagination--text">
+        {{ site.data.ui-text[site.locale].pagination_previous | default: "Anterior Post" }}
+      </span>
 
       <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">
-        {{ site.data.ui-text[site.locale].pagination_previous | default: "Anterior Post" }}
+        {{ page.previous.title | markdownify | strip_html }}
       </a>
+    </div>
 
-    {% else %}
-
-      <a href="#" class="pagination--pager disabled post__disabled">
-        {{ site.data.ui-text[site.locale].pagination_previous | default: "Anterior Post" }}
-    </a>
-
-    {% endif %}
-
-    {% if page.next %}
+    <div class="pagination__next">
+      <span class="pagination--text">
+        {{ site.data.ui-text[site.locale].pagination_next | default: "Siguiente Post" }}
+      </span>
 
       <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">
-        {{ site.data.ui-text[site.locale].pagination_next | default: "Siguiente Post" }}
+        {{ page.next.title | markdownify | strip_html }}
       </a>
-
-    {% else %}
-
-      <a href="#" class="pagination--pager disabled post__disabled">
-        {{ site.data.ui-text[site.locale].pagination_next | default: "Siguiente Post" }}
-      </a>
-
-    {% endif %}
-
+    </div>
   </nav>
+
+
+{% elsif page.previous and page.next == nil %}
+
+
+  <nav class="pagination">
+    <div class="pagination__previous">
+      <span class="pagination--text">
+        {{ site.data.ui-text[site.locale].pagination_previous | default: "Anterior Post" }}
+      </span>
+
+      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">
+        {{ page.previous.title | markdownify | strip_html }}
+      </a>
+    </div>
+
+    <div class="pagination__next">
+      <span class="pagination--text"></span>
+    </div>
+  </nav>
+
+
+{% elsif page.next and page.previous == nil %}
+
+
+  <nav class="pagination">
+    <div class="pagination__previous">
+      <span class="pagination--text"></span>
+    </div>
+
+    <div class="pagination__next">
+      <span class="pagination--text">
+        {{ site.data.ui-text[site.locale].pagination_next | default: "Siguiente Post" }}
+      </span>
+
+      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">
+        {{ page.next.title | markdownify | strip_html }}
+      </a>
+    </div>
+  </nav>
+
+
+{% else %}
+
+
+  <nav class="pagination">
+    <div class="pagination__previous">
+      <span class="pagination--text">
+        {{ site.data.ui-text[site.locale].pagination_previous | default: "Anterior Post" }}
+      </span>
+
+      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">
+        
+      </a>
+    </div>
+
+    <div class="pagination__next">
+      <span class="pagination--text">
+        {{ site.data.ui-text[site.locale].pagination_next | default: "Siguiente Post" }}
+      </span>
+
+      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">
+        
+      </a>
+    </div>
+  </nav>
+
+  <a href="#" class="pagination--pager disabled post__disabled">
+        {{ site.data.ui-text[site.locale].pagination_next | default: "Siguiente Post" }}
+      </a> 
+<a href="#" class="pagination--pager disabled post__disabled">
+    </a>
+
 
 {% endif %}

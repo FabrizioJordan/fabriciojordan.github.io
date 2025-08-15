@@ -12,9 +12,13 @@
       {% endfor %}
     {% endif %}
 
-    <li class="flex flex-row justify-between text-sm">
-	<div class="text-sm page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}</div>    	
-	<a class="email__footer text-sm normal-case tracking-wider flex flex-col justify-center" href="mailto:dev.fjordan@gmail.com?subject=Hola%20Fabricio!%20..."><span>dev.fjordan@gmail.com</span></a>
+    <li class="flex flex-row justify-between text-sm"> 	
+      <a class="email__footer text-sm normal-case tracking-wider flex flex-col justify-center" href="mailto:dev.fjordan@gmail.com?subject=Hola%20Fabricio!%20...">
+        <span>dev.fjordan@gmail.com</span>
+      </a>
+      <a class="footer__back-to-top" href="#site-nav" title="Ir a Arriba">
+        Volver al Inicio ↑
+      </a>
     </li>
   </ul>
 </div>

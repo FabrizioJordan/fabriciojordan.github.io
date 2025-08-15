@@ -35,9 +35,6 @@ html body {
   padding-bottom: 147.375px
 }
 
-html .page__footer {
-  background: oklch(0.26 0 0);
-}
 
 html body video{
   max-width: 100%;
@@ -315,13 +312,34 @@ html .main__home{
   max-width: 84%;
 }
 
+
 html .breadcrumbs:has(~ .main__post) {
-  padding-top: 3.75em;
+  padding-top: 0em;
 }
 
-html footer.page__meta {
-  padding-top: 2em;
+@media (min-width: 1024px){
+  html .breadcrumbs:has(~ .main__post) {
+    padding-top: 3.75em;
+  }
 }
+
+html .layout--single .breadcrumbs .current{
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 1024px){
+  html .layout--single .breadcrumbs .current{
+    max-width: 300px;
+  }
+}
+
+html .breadcrumbs ol li .current{
+  
+}
+
 
 html .page nav.pagination {
   display: flex;
@@ -335,21 +353,48 @@ html nav.pagination::after{
   content: unset;
 }
 
+html .pagination__previous,
+html .pagination__next{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+html .pagination__previous span,
+html .pagination__next span{
+  font-size: 0.765em;
+  color: #d3d3d3;
+}
+
 html .pagination .pagination--pager:not(.disabled) {
   display: inline-block;
   float: unset;
-  border-radius: 8px;
-  padding: 1.2em 1.5em;
+  margin: 0.6em 0em;
   width: unset;
-  background: #7979790d;
-  border: 1px solid #00000000;
-  font-size: 0.8em;
+  font-size: 1em;
   -webkit-transition: all 0.2s ease-out;
-  color: #0095ff;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+@media (min-width: 768px){
+  html .pagination .pagination--pager:not(.disabled) {
+    max-width: 280px;
+  }
+}
+
+@media (min-width: 1280px){
+  html .pagination .pagination--pager:not(.disabled) {
+    max-width: 350px;
+  }
 }
 
 html .pagination .pagination--pager:hover:not(.disabled){
-  border-color: #0095ff8f;
+  color: #0095ff;
 }
 
 html .pagination .post__disabled{
@@ -364,13 +409,26 @@ html .pagination .post__disabled{
 }
 
 html .main__post .page__meta{
-  padding-bottom: 2em;
+  padding-bottom: 1em;
+  font-size: 0.8em;
+}
+
+@media (min-width: 1024px){
+  html .main__post .page__meta{
+    padding-bottom: 2em;
+    font-size: 1em;
+  }
 }
 
 html .main__post .page__inner-wrap{
-  margin-top: 2em;
+  margin-top: 3em;
 }
 
+@media (min-width: 1024px){
+  html .main__post .page__inner-wrap{
+    margin-top: 2em;
+  }
+}
 
 html .masthead{
   border-bottom: 1px solid $border-color;
@@ -400,8 +458,6 @@ html body .sidebar.relative{
   }
 }
 
-.email__footer{
-}
 
 html .greedy-nav .visible-links a{
   gap: 0.5em;
@@ -474,6 +530,7 @@ html .page__title-home{
   margin: 0;
 }
 
+
 html .page__inner-wrap{
   padding-right: 0px;
   margin-top: 1em;
@@ -494,14 +551,54 @@ html .page__inner-wrap{
 }
 
 
-
-html .page__footer footer {
-  margin-left: 4em;
-  margin-right: 4em;
-  margin-top: 2em;
-  padding: 0 1em 1em;
+html .page__inner-wrap .page__title{
+  font-size: 1.365em;
 }
 
+
+@media (min-width: 768px){
+  html .page__inner-wrap .page__title{
+    font-size: 1.563em;
+  }
+}
+
+
+
+/* 
+==========================================
+====  ARCHIVE  ====
+==========================================
+*/
+
+
+html .archive {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+@media (min-width: 768px){
+  html .archive{
+    float: right;
+    width: calc(100% - 100px);
+    padding-right: 50px;
+  }
+}
+
+
+@media (min-width: 1024px){
+  html .archive{
+    float: right;
+    width: calc(100% - 200px);
+    padding-right: 100px;
+  }
+}
+
+@media (min-width: 1280px){
+  html .archive{
+    width: calc(100% - 200px);
+    padding-right: 200px;
+  }
+}
 
 html .archive__subtitle{
   font-size: 1.25em;
@@ -557,5 +654,38 @@ html .taxonomy__index {
   padding: 0;
   font-size: 0.75em;
   list-style: none;
+}
+
+
+
+/* 
+==========================================
+====  FOOTER  ====
+==========================================
+*/
+
+
+html .page__footer {
+  background: oklch(0.26 0 0);
+}
+
+html .page__footer footer {
+  margin-left: 4em;
+  margin-right: 4em;
+  margin-top: 2em;
+  padding: 0 1em 1em;
+}
+
+
+html footer.page__meta {
+  padding-top: 2em;
+}
+
+
+html .footer__back-to-top{
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0px;
 }
 
